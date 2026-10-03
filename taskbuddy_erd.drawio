@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net" modified="2026-10-03T00:00:00.000Z" agent="Mozilla/5.0" version="24.7.17" type="device">
+  <diagram id="taskbuddy-erd" name="TaskBuddy ERD">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="title" value="TaskBuddy ERD" style="text;html=1;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="420" y="20" width="260" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="users" value="users&#xa;------------------------------&#xa;id (PK)&#xa;full_name&#xa;email&#xa;password_hash&#xa;created_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#1d4ed8;align=left;verticalAlign=top;spacing=8;spacingLeft=12;spacingTop=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="180" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="categories" value="categories&#xa;------------------------------&#xa;id (PK)&#xa;name&#xa;color_hex&#xa;created_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;align=left;verticalAlign=top;spacing=8;spacingLeft=12;spacingTop=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="180" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tasks" value="tasks&#xa;------------------------------&#xa;id (PK)&#xa;user_id (FK)&#xa;category_id (FK)&#xa;title&#xa;description&#xa;due_date&#xa;priority&#xa;status&#xa;created_at&#xa;updated_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;align=left;verticalAlign=top;spacing=8;spacingLeft=12;spacingTop=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="230" height="240" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tags" value="tags&#xa;------------------------------&#xa;id (PK)&#xa;name&#xa;created_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#be185d;align=left;verticalAlign=top;spacing=8;spacingLeft=12;spacingTop=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="440" width="170" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="task_tags" value="task_tags&#xa;------------------------------&#xa;task_id (FK)&#xa;tag_id (FK)&#xa;PK (task_id, tag_id)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3e8ff;strokeColor=#7c3aed;align=left;verticalAlign=top;spacing=8;spacingLeft=12;spacingTop=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="650" width="200" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="reminders" value="reminders&#xa;------------------------------&#xa;id (PK)&#xa;task_id (FK)&#xa;reminder_time&#xa;message&#xa;is_sent&#xa;created_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;align=left;verticalAlign=top;spacing=8;spacingLeft=12;spacingTop=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="620" width="210" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_users_tasks" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERoneToMany;endFill=0;strokeColor=#374151;strokeWidth=1.5;" edge="1" parent="1" source="users" target="tasks">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_categories_tasks" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERoneToMany;endFill=0;strokeColor=#374151;strokeWidth=1.5;" edge="1" parent="1" source="categories" target="tasks">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_tasks_reminders" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERoneToMany;endFill=0;strokeColor=#374151;strokeWidth=1.5;" edge="1" parent="1" source="tasks" target="reminders">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_tasks_task_tags" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERoneToMany;endFill=0;strokeColor=#374151;strokeWidth=1.5;" edge="1" parent="1" source="tasks" target="task_tags">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_tags_task_tags" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERoneToMany;endFill=0;strokeColor=#374151;strokeWidth=1.5;" edge="1" parent="1" source="tags" target="task_tags">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
